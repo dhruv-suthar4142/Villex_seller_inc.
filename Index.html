@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VexaChat | Advanced Real-Time Messenger</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div id="app-container" class="glass-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <img src="https://i.pravatar.cc/150?u=me" alt="Profile" id="my-avatar">
+                    <div class="user-info">
+                        <span id="my-username">Loading...</span>
+                        <span class="status-indicator online">Online</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-new-chat" title="New Chat"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button id="btn-settings" title="Settings"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="user-search" placeholder="Search chats or users...">
+                </div>
+            </div>
+
+            <div class="chat-list" id="chat-list">
+                <!-- Dynamic chat items injected here -->
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <div id="welcome-screen" class="center-screen">
+                <div class="welcome-content">
+                    <i class="fa-solid fa-comments-alt"></i>
+                    <h1>Welcome to VexaChat</h1>
+                    <p>Select a conversation to start messaging.</p>
+                </div>
+            </div>
+
+            <div id="chat-window" class="hidden">
+                <header class="chat-header">
+                    <div class="active-user-info">
+                        <img src="" id="active-avatar" alt="Avatar">
+                        <div class="user-details">
+                            <h3 id="active-username">Username</h3>
+                            <span id="active-status">Online</span>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button id="btn-call-voice"><i class="fa-solid fa-phone"></i></button>
+                        <button id="btn-call-video"><i class="fa-solid fa-video"></i></button>
+                        <button id="btn-info"><i class="fa-solid fa-circle-info"></i></button>
+                    </div>
+                </header>
+
+                <div class="messages-container" id="messages-container">
+                    <!-- Messages injected here -->
+                </div>
+
+                <div class="input-area">
+                    <div class="input-toolbar">
+                        <button id="btn-emoji"><i class="fa-regular fa-face-smile"></i></button>
+                        <button id="btn-attach"><i class="fa-solid fa-paperclip"></i>
+                            <input type="file" id="file-input" hidden multiple>
+                        </button>
+                        <button id="btn-voice-rec"><i class="fa-solid fa-microphone"></i></button>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="message-input" placeholder="Type a message...">
+                        <button id="btn-send"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content glass-card">
+            <div id="modal-body"></div>
+            <button class="close-modal">&times;</button>
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="auth.js"></script>
+    <script src="chat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
